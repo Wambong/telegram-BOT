@@ -1,0 +1,191 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        
+            <title>{% block title %}{% endblock %}</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 20px;
+                    margin: 0;
+                    background-color: #C0D6E8;
+                }
+                nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.link-button {
+    display: inline-block; /* Allows applying padding and margins */
+    background-color: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.link-button:hover {
+    background-color: #0056b3;
+}
+                nav ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+        
+                nav ul li {
+                    display: inline;
+                    margin-right: 20px;
+                }
+        
+                nav ul li a {
+                    text-decoration: none;
+                    color: #333;
+                }
+        
+                nav ul li form {
+                    display: inline;
+                }
+        
+                button {
+                    background-color: #007bff;
+                    color: white;
+                    padding: 6px 12px;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 4px;
+                }
+        
+                button:hover {
+                    background-color: #0056b3;
+                }
+        
+                input, select {
+                    padding: 6px;
+                    margin-top: 8px;
+                    margin-bottom: 16px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+                h2 {
+                color: #333;
+                margin-bottom: 20px;
+            }
+        
+            a {
+                text-decoration: none;
+                color: #007bff;
+                transition: color 0.3s ease;
+            }
+        
+            a:hover {
+                color: #0056b3;
+            }
+        
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+        
+            ul li {
+                padding: 8px 0;
+            }
+        
+            .pagination {
+                display: flex;
+                list-style: none;
+                padding: 0;
+            }
+        
+            .pagination li {
+                margin: 0 5px;
+            }
+        
+            .pagination li a {
+                color: #333;
+                padding: 5px 10px;
+                text-decoration: none;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+        
+            .pagination li a:hover {
+                background-color: #f0f0f0;
+            }
+        
+            .pagination .active a {
+                background-color: #007bff;
+                color: #fff;
+                border-color: #007bff;
+            }
+        
+            .pagination .active a:hover {
+                background-color: #0056b3;
+            }
+        
+
+    .navbar-fixed-bottom {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: skyblue;
+        border-top: 1px solid #ccc;
+        padding: 5px;
+        z-index: 1000;
+    }
+            </style>
+        </head>
+
+    <body>
+        <nav class="navbar-fixed-bottom">
+            <ul>
+                <li>
+                     <a href="{% url 'add_news' %}" class="link-button">Add News</a>
+                </li>
+                <li>
+                     <a href="{% url 'product_add' %}" class="link-button">Add New Product</a>
+                </li>
+                <li><a href="{% url 'product_list' %}" class="link-button">Home</a></li>
+                <li>
+                    <form action="{% url 'product_search' %}" method="GET">
+                        {{ search_form.as_p }}
+                        <button type="submit">Search Products</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="{% url 'category_search' %}" method="GET">
+                        {{ search_form.as_p }}
+                        <button type="submit">Search Categories</button>
+                        
+                        <li><a href="{% url 'logout' %}" class="link-button">Logout</a></li>
+                    </form>
+                </li>
+                
+            </ul>
+        </nav>
+        <div>
+        {% block content %}
+
+        {% endblock %}
+    <h1>Subscribe to Newsletter</h1>
+    <form method="post" action="{% url 'get_chat_id' %}">
+        {% csrf_token %}
+        <button type="submit">Subscribe</button>
+    </form>
+
+        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+
+    </body>
+    </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Use a modern font */
+            margin: 20px; /* Add some margin to the body to avoid edge-to-edge text */
+            background-color: #f9f9f9; /* A light background to ease eye strain */
+        }
+        h1 {
+            color: #333; /* Dark grey color for the heading */
+            text-align: center; /* Center-align the heading */
+        }
+        ul {
+            list-style-type: none; /* Remove the default list bullet */
+            padding: 0; /* Remove default padding */
+        }
+        li {
+            background-color: #fff; /* White background for each list item */
+            margin-bottom: 10px; /* Add some space between list items */
+            padding: 10px; /* Add some padding inside each list item */
+            border: 1px solid #ddd; /* A subtle border around each list item */
+            border-radius: 5px; /* Slightly rounded corners for the list items */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* A light shadow for depth */
+        }
+        /* Styling for the product name, description, and price */
+        li::before {
+            content: "🔹 "; /* Add a bullet-like icon before each item */
+        }
+        .product-price {
+            font-weight: bold; /* Make the price stand out */
+        }
+    </style>
+</head>
+<body>
+    <h1>Products in {{ category.name }}</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <span class="product-name">{{ product.name }}</span> - 
+                <span class="product-description">{{ product.description }}</span> - 
+                <span class="product-price"> price : {{ product.price }} $</span>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

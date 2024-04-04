@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category List</title>
+</head>
+<body>
+    <h2>Category List</h2>
+    <a href="{% url 'category_add' %}">Add New Category</a>
+    <ul>
+    {% for category in categories %}
+        <li><a href="{% url 'category_products' category.id %}">{{ category.name }}</a> - <a href="{% url 'category_edit' category.pk %}">Edit</a> - <a href="{% url 'category_delete' category.pk %}">Delete</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

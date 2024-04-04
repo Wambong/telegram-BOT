@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px; /* Add padding around the content */
+        background-color: #f4f4f4;
+    }
+
+    .success-message {
+        max-width: 600px;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: #4CAF50;
+    }
+
+    p {
+        font-size: 16px;
+        color: #666;
+    }
+</style>
+
+<div class="success-message">
+    <h1>Регистрация успешна!</h1>
+    <p>Спасибо за регистрацию. Ваш аккаунт успешно создан.</p>
+</div>
+{% endblock %}

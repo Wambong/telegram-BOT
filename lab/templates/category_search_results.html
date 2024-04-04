@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Search Results</title>
+</head>
+<body>
+    <h1>Category Search Results</h1>
+    <form method="get" action="{% url 'category_search' %}">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if categories %}
+        <ul>
+            {% for category in categories %}
+                <li><a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p></p>
+    {% endif %}
+</body>
+</html>
+{% endblock %}
