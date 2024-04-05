@@ -3,17 +3,14 @@
 
 
   {% block content %}
-    <title>New item</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #C0D6E8;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Newsletter</title>
+            <style>
 
-        h2 {
+
+        h1 {
             color: #333;
             font-size: 24px;
             margin-bottom: 20px;
@@ -72,13 +69,11 @@
     </style>
 </head>
 <body>
-    <h2>Add Item</h2>
-    <form class="" method="post" enctype="multipart/form-data">
+    <h1>Create Newsletter</h1>
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Save</button>
+        <button type="submit">Create Newsletter</button>
     </form>
-<br>
-<br>
 </body>
   {% endblock %}

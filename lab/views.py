@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect , get_object_or_404
-from .forms import RegistrationForm , ProductForm , CommentForm , CategoryForm , SearchForm
+from .forms import RegistrationForm , ProductForm , CommentForm , CategoryForm , SearchForm, ProductEditForm
 from .models import Product , Category
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse
@@ -67,16 +67,20 @@ def product_add(request):
         form = ProductForm()
     return render(request, 'product_form.html', {'form': form})
 
-def product_edit(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def product_edit(request, pk=None):
+    if pk:
+        product = get_object_or_404(Product, pk=pk)
+    else:
+        product = None
+
     if request.method == 'POST':
-        form = ProductForm(request.POST, instance=product)
+        form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
             return redirect('product_list')
     else:
         form = ProductForm(instance=product)
-    return render(request, 'product_form.html', {'form': form})
+    return render(request, 'product_edit.html', {'form': form})
 
 
 def product_delete(request, pk):

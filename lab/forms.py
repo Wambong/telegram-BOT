@@ -17,22 +17,15 @@ class RegistrationForm(forms.Form):
 
 
 class ProductForm(forms.ModelForm):
-    categories = forms.ModelMultipleChoiceField(queryset=Category.objects.all(), widget=forms.CheckboxSelectMultiple)
-    
     class Meta:
         model = Product
-        fields = ['name', 'description', 'color', 'price', 'categories' , 'image' ]
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    def clean_categories(self):
-        categories = self.cleaned_data['categories']
-        if len(categories) == 0:
-            raise forms.ValidationError("Select at least one category.")
-        return categories
+        fields = '__all__'
 
 
+class ProductEditForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
@@ -41,7 +34,7 @@ class CommentForm(forms.ModelForm):
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
-        fields = ['name']
+        fields = '__all__'
 
 class SearchForm(forms.Form):
     query = forms.CharField(label='Search')

@@ -17,8 +17,8 @@ SECRET_KEY = 'django-insecure-mr&=225h!blq9cwbxk#%fs#*a1e5uv=rdy9#vzys&()&*7w#x2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['6fd8-176-59-118-176.ngrok-free.app', 'localhost', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://6fd8-176-59-118-176.ngrok-free.app']
+ALLOWED_HOSTS = ['04cc-95-26-81-105.ngrok-free.app', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://04cc-95-26-81-105.ngrok-free.app']
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
@@ -130,4 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-TELEGRAM_WEBHOOK_SECRET = 'https://api.telegram.org/bot6919097745:AAG07P5y7uegerGTrQcA1u7GPT_9gzOicU8/setWebhook?url=https://8fba-176-59-102-45.ngrok-free.app/telegram/webhook/'
+TELEGRAM_WEBHOOK_SECRET = 'https://api.telegram.org/bot6919097745:AAG07P5y7uegerGTrQcA1u7GPT_9gzOicU8/setWebhook?url=https://04cc-95-26-81-105.ngrok-free.app/telegram/webhook/'

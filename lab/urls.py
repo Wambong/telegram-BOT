@@ -21,12 +21,7 @@ urlpatterns = [
     path('categories/<int:category_id>/', views.category_detail, name='category_detail'),
     path('telegram/webhook/', views.telegram_webhook, name='telegram_webhook'),
     path('add-news/', views.add_news, name='add_news'),
+    path('create_newsletter/', utils.create_newsletter, name='create_newsletter'),
     path('subscribe/', utils.subscribe, name='subscribe'),
-    path('get-chat-id/', utils.get_chat_id, name='get_chat_id'),
-
-
-
-
-
 
 ]
