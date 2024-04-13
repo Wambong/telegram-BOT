@@ -16,7 +16,7 @@
     {% if categories %}
         <ul>
             {% for category in categories %}
-                <li><a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a></li>
+                <li><a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a>- <a href="{% url 'category_edit' category.pk %}">Edit</a> - <a href="{% url 'category_delete' category.pk %}">Delete</a></li>
             {% endfor %}
         </ul>
     {% else %}

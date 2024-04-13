@@ -34,22 +34,17 @@ def send_product_added_message(sender, instance, created, **kwargs):
         def send_message():
             message = f'New product added: {instance.name}\nDescription: {instance.description[:100]}\nPrice: ${instance.price}'
             send_telegram_message(settings.DEFAULT_CHAT_ID, message)
-        # Defer the execution of send_message until the signal is actually triggered
         send_message()
-
 @receiver(pre_delete, sender=Product)
 def send_product_deleted_message(sender, instance, **kwargs):
     def send_message():
         message = f'The product "{instance.name}" has been deleted.'
         send_telegram_message(settings.DEFAULT_CHAT_ID, message)
-    # Defer the execution of send_message until the signal is actually triggered
     send_message()
-
 @receiver(post_save, sender=Comment)
 def send_comment_posted_message(sender, instance, created, **kwargs):
     if created:
         def send_message():
             message = f'New comment on "{instance.product.name}" by {instance.author}: {instance.text[:100]}'
             send_telegram_message(settings.DEFAULT_CHAT_ID, message)
-        # Defer the execution of send_message until the signal is actually triggered
         send_message()
